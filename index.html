@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse the LitBuy spreadsheet with real CAFANS listings, estimated USD prices, category filters and a checklist for sizes, QC photos and shipping.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="theme-color" content="#102c22">
+  <title>LitBuy spreadsheet | CAFANS Finds &amp; Buying Guide</title>
+  <!-- Google and Bing submission is pending. Once the public URL is live, add its absolute canonical URL and request indexing in the verified Google Search Console and Bing Webmaster Tools properties. -->
+  <style>
+    :root { color-scheme: light; font-family: Inter, system-ui, sans-serif; background: #f3f5ef; color: #172b23; }
+    * { box-sizing: border-box; }
+    body { margin: 0; line-height: 1.6; }
+    [hidden] { display: none !important; }
+    .wrap { width: min(1040px, calc(100% - 32px)); margin-inline: auto; }
+    .hero { background: #102c22; color: #f6f8ee; text-align: center; padding: clamp(56px, 10vw, 112px) 0; }
+    .eyebrow { color: #cbe7ae; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; font-size: .76rem; }
+    h1 { font-size: clamp(2.5rem, 8vw, 5.7rem); letter-spacing: -.065em; line-height: 1; margin: 14px 0 20px; }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -.045em; line-height: 1.15; margin: 0 0 12px; }
+    .hero p { max-width: 57ch; margin-inline: auto; }
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 26px; }
+    .button { padding: .7rem 1.15rem; border: 1px solid #d8edc0; border-radius: 8px; color: inherit; text-decoration: none; font-weight: 700; }
+    .primary { background: #d8edc0; color: #102c22; }
+    main > section { padding-block: 36px; }
+    .categories { display: flex; gap: 10px; flex-wrap: wrap; padding: 0; list-style: none; }
+    .categories a { display: block; padding: .32rem .7rem; border-radius: 20px; background: #e1ebdc; }
+    a { color: #165440; text-underline-offset: .2em; }
+    :focus-visible { outline: 3px solid #b77216; outline-offset: 3px; }
+    .panel { background: #fff; border: 1px solid #d8e1d5; border-radius: 16px; padding: clamp(16px, 4vw, 32px); }
+    .filters { display: flex; gap: 14px; flex-wrap: wrap; margin: 20px 0 10px; }
+    label { display: grid; gap: 4px; flex: 1 1 180px; font-weight: 650; }
+    input, select { width: 100%; font: inherit; padding: .48rem .65rem; border: 1px solid #849889; border-radius: 6px; background: white; color: inherit; }
+    .scroll { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; }
+    caption { text-align: left; margin-bottom: 8px; }
+    th, td { padding: .75rem .45rem; border-bottom: 1px solid #d8e1d5; text-align: left; }
+    td:last-child { white-space: nowrap; }
+    summary { cursor: pointer; font-weight: 700; padding-block: .65rem; }
+    details + details { border-top: 1px solid #d8e1d5; }
+    footer { padding: 22px 0 36px; border-top: 1px solid #d8e1d5; }
+  </style>
+<link rel="canonical" href="https://kakobuyfinds.github.io/usmjb/">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Shoes · Streetwear</p>
+      <h1>LitBuy spreadsheet</h1>
+      <p>Browse real CAFANS finds, compare estimated item prices and check what you’ll need before ordering through a shopping agent.</p>
+      <div class="actions">
+        <a class="button primary" href="https://cafans.com">LitBuy spreadsheet</a>
+        <a class="button" href="https://cafans.com">Buy it now</a>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section aria-labelledby="shortlist">
+      <h2 id="shortlist">Build a shortlist before you order</h2>
+      <p>Start with a category and open the product page to review photos and available variants. Save the exact colour, size and source link next to each item so you can check that the agent’s order matches your shortlist.</p>
+      <ul class="categories" aria-label="Browse CAFANS categories">
+        <li><a href="https://cafans.com/category-911-Shoes.html">Shoes</a></li>
+        <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies &amp; sweaters</a></li>
+        <li><a href="https://cafans.com/category-913-T-Shirts.html">T-shirts</a></li>
+        <li><a href="https://cafans.com/category-914-Jackets.html">Jackets</a></li>
+      </ul>
+    </section>
+    <section class="panel" aria-labelledby="catalog">
+      <h2 id="catalog">CAFANS product directory</h2>
+      <p>Open any listing for product photos and current details. The prices below are CAFANS reference prices in USD.</p>
+      <div class="filters" id="filters" hidden>
+        <label>Product name <input id="query" type="search"></label>
+        <label>Category
+          <select id="category">
+            <option value="">All categories</option>
+            <option>Shoes</option>
+            <option>Hoodies</option>
+            <option>T-shirts</option>
+            <option>Jackets</option>
+          </select>
+        </label>
+      </div>
+      <p id="status" role="status" hidden></p>
+      <div class="scroll" tabindex="0" role="region" aria-label="CAFANS product table">
+        <table>
+          <caption>Featured listings from the CAFANS catalog</caption>
+          <thead><tr><th scope="col">Product</th><th scope="col">Category</th><th scope="col">Est. price</th></tr></thead>
+          <tbody id="products">
+            <tr><th scope="row"><a href="https://cafans.com/goods-158791.html">Leather Slides</a></th><td>Shoes</td><td>$62.36</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158280.html">Thug Club - Rock Hoodie</a></th><td>Hoodies</td><td>$37.22</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158200.html">Unisex Embroidered Oversized T-Shirt</a></th><td>T-shirts</td><td>$32.64</td></tr>
+            <tr><th scope="row"><a href="https://cafans.com/goods-158279.html">Corteiz Jacket</a></th><td>Jackets</td><td>$42.78</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section aria-labelledby="checklist">
+      <h2 id="checklist">What to check before paying</h2>
+      <ol>
+        <li><strong>Check the size chart.</strong> Compare garment measurements with a piece you already own. For shoes, check what the seller’s size chart measures and compare the values in centimetres.</li>
+        <li><strong>Confirm the source listing.</strong> Check that the colour and size match and that LitBuy accepts the exact source URL before funding the order.</li>
+        <li><strong>Review warehouse photos.</strong> If QC photos are available, compare the labels, measurements and visible condition with the listing. Check the seller’s return deadline before approving shipment.</li>
+        <li><strong>Compare landed costs.</strong> Add domestic delivery, agent fees, international shipping and any applicable taxes to the item price. Compare quotes using the same destination and parcel dimensions, since the charge can depend on volumetric weight.</li>
+      </ol>
+    </section>
+    <section aria-labelledby="faq">
+      <h2 id="faq">LitBuy spreadsheet FAQ</h2>
+      <details>
+        <summary>Where do the product buttons lead?</summary>
+        <p>Both main buttons open CAFANS. Individual product links open their CAFANS listing pages. This is an independent shopping guide.</p>
+      </details>
+      <details>
+        <summary>What if LitBuy rejects a source link?</summary>
+        <p>Reopen the product page and check that you copied the seller’s original listing URL. If the agent still rejects it, ask support whether it accepts that marketplace before submitting payment.</p>
+      </details>
+      <details>
+        <summary>Why is my final quote different from the table price?</summary>
+        <p>The table shows reference item prices. Confirm the selected variant, exchange rate, agent charges and delivery costs when you request a quote.</p>
+      </details>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap">Product catalog sourced from <a href="https://cafans.com">CAFANS</a>.</div>
+  </footer>
+  <script>
+    const filters = document.querySelector('#filters');
+    const query = document.querySelector('#query');
+    const category = document.querySelector('#category');
+    const status = document.querySelector('#status');
+    const rows = Array.from(document.querySelector('#products').rows);
+
+    function filterProducts() {
+      const term = query.value.trim().toLowerCase();
+      let visible = 0;
+      for (const row of rows) {
+        const matchesName = row.cells[0].textContent.toLowerCase().includes(term);
+        const matchesCategory = !category.value || row.cells[1].textContent === category.value;
+        row.hidden = !(matchesName && matchesCategory);
+        if (!row.hidden) visible++;
+      }
+      status.textContent = visible ? visible + ' of ' + rows.length + ' listings' : 'No matching listings.';
+    }
+
+    query.addEventListener('input', filterProducts);
+    category.addEventListener('change', filterProducts);
+    filters.hidden = false;
+    status.hidden = false;
+    filterProducts();
+  </script>
+</body>
+</html>
